@@ -1,0 +1,130 @@
+:root{--pink:#feecea;--white:#fff;--ink:#333;--coral:#ff7882;--heart:#f61f1f;--paper:#fff8e4;--line:#daccbf;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*{margin:0;padding:0;box-sizing:inherit}
+html,body{height:100%;background:var(--pink);color:var(--ink)}
+#wrap{position:relative;height:100%;overflow:hidden;
+background-image:linear-gradient(0deg,transparent 24%,#fff 25%,#fff 26%,transparent 27%,transparent 74%,#fff 75%,#fff 76%,transparent 77%),linear-gradient(90deg,transparent 24%,#fff 25%,#fff 26%,transparent 27%,transparent 74%,#fff 75%,#fff 76%,transparent 77%);
+background-size:80px 80px}
+/* bunting */
+.bunting{position:absolute;top:0;left:0;width:100%;height:70px;transform:translateY(-120px);animation:drop 1.2s .5s forwards}
+@keyframes drop{to{transform:translateY(0)}}
+.bunting svg{width:100%;height:100%}
+.content{position:relative;display:flex;align-items:center;justify-content:center;gap:5vw;height:100%;padding:70px 5vw 20px}
+.left,.right{display:flex;flex-direction:column;align-items:center;position:relative}
+/* title */
+.title{font-family:'Titan One',sans-serif;font-size:clamp(2.2rem,6vw,4rem);text-align:center;line-height:1.1;position:relative}
+.title h1{display:flex;justify-content:center;font-weight:400;
+text-shadow:4px 4px var(--ink),-4px 4px var(--ink),4px -4px var(--ink),-4px -4px var(--ink),4px 8px 0 var(--ink)}
+.title .h1{color:#fff}.title .h2{color:var(--coral)}
+.title span{display:inline-block;opacity:0;transform:translateY(50px);animation:up .5s var(--t) forwards}
+@keyframes up{to{opacity:1;transform:none}}
+.hat{position:absolute;right:-10px;top:-300px;font-size:clamp(3rem,7vw,5rem);transform:rotate(-40deg);animation:hat 2s 3.5s forwards ease;z-index:-1}
+@keyframes hat{60%{top:-48px;transform:rotate(-40deg)}100%{top:-48px;transform:rotate(14deg)}}
+.date{margin-top:22px;border:3px solid var(--ink);background:var(--coral);border-radius:50px;font-family:'Sriracha',cursive;
+font-size:1.2rem;font-weight:700;padding:0;height:0;min-width:0;overflow:hidden;opacity:0;white-space:nowrap;animation:pill 1s 5s forwards}
+@keyframes pill{to{opacity:1;height:48px;padding:6px 34px}}
+.btn{margin-top:26px;transform:scale(0);animation:pop 2s 8s forwards}
+@keyframes pop{0%{transform:scale(0)}10%{transform:scale(1.3)}20%{transform:scale(.7)}30%,100%{transform:scale(1)}}
+#open{font-family:'Sriracha',cursive;font-size:1rem;background:var(--coral);border:3px solid var(--ink);border-radius:50px;padding:6px 18px;cursor:pointer;transition:.4s}
+#open:hover{background:var(--heart);border-color:var(--heart);color:#fff;box-shadow:0 3px 8px rgba(0,0,0,.25)}
+#open:active{transform:scale(.8)}
+/* photo */
+.rise{transform:translateY(110vh);animation:rise 4.5s 3.5s forwards ease-in-out;position:relative}
+@keyframes rise{to{transform:none}}
+.photo{width:min(40vw,380px);height:min(40vw,380px);min-width:220px;min-height:220px;border-radius:50%;border:6px solid var(--ink);overflow:hidden;
+background:linear-gradient(135deg,#ffd1d6,#ffb3bd);display:flex;align-items:center;justify-content:center;position:relative}
+.photo img{width:100%;height:100%;object-fit:cover;display:none}
+.photo .ph{font-size:6rem}
+.photo small{position:absolute;bottom:14%;font-family:'Sriracha',cursive;background:#fff;border:2px solid var(--ink);border-radius:20px;padding:2px 10px;font-size:.75rem}
+.name{position:absolute;left:50%;bottom:-22px;transform:translateX(-50%);display:flex;gap:14px;align-items:center;background:var(--coral);
+border:3px solid var(--ink);border-radius:50px;padding:2px 28px;font-family:'Sriracha',cursive;font-size:1.6rem;font-weight:700}
+.hrt{color:var(--heart);filter:drop-shadow(0 0 3px var(--heart));animation:beat 1s infinite linear;display:inline-block}
+@keyframes beat{50%{transform:scale(1.25)}}
+.balloon{position:absolute;font-size:5.5rem;transform-origin:bottom center;animation:sway 2s infinite linear}
+.b1{top:-70px;left:-60px}.b2{top:140px;right:-60px;z-index:-1;animation-delay:-1s}
+@keyframes sway{0%,50%,100%{transform:rotate(0)}25%{transform:rotate(4deg)}75%{transform:rotate(-4deg)}}
+/* rotating badge */
+.badge{position:absolute;top:18px;right:4vw;width:100px;height:100px;display:flex;align-items:center;justify-content:center;transform:scale(0);animation:pop 3s 7s forwards}
+.ring{width:100px;height:100px;border-radius:50%;background:var(--coral);border:5px solid var(--ink);position:relative;animation:spin 6s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.ring span{position:absolute;left:50%;top:0;transform-origin:0 45px;transform:rotate(calc(var(--i)*24deg));font:.7rem 'Sriracha',cursive;text-transform:uppercase}
+.badge .hrt{position:absolute;font-size:1.6rem}
+/* stars & confetti */
+.star{position:absolute;background:var(--ink);clip-path:polygon(0 50%,35% 35%,50% 0,65% 35%,100% 50%,65% 65%,50% 100%,35% 65%);transform:scale(0);
+animation:pop 3s var(--t) forwards,twinkle 2s 10s infinite ease-in-out}
+@keyframes twinkle{25%{transform:scale(.8)}50%{transform:scale(1.1)}}
+.deco{position:absolute;font-size:1.5rem;transform:scale(0);animation:pop 3s var(--t) forwards}
+.cake{position:absolute;right:0;bottom:-8px;font-size:5rem;transform:scale(0);animation:pop 3s 7s forwards}
+/* letter */
+#overlay{position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:10;display:none;align-items:center;justify-content:center;padding:16px}
+#card{position:relative;width:min(720px,94vw);background:#fff;border-radius:27px;padding:17px;box-shadow:0 3px 8px rgba(0,0,0,.25)}
+#close{position:absolute;right:-10px;top:-10px;width:32px;height:32px;border-radius:50%;background:#fff;border:0;box-shadow:0 2px 8px rgba(99,99,99,.3);cursor:pointer;font-size:1rem}
+.letter{background:var(--paper);border-radius:10px;padding:16px 10px 18px;min-height:300px}
+#lt{text-align:center;font:700 2.2rem 'Dancing Script',cursive;min-height:2.8rem}
+#lt .hrt{font-size:1.2rem;margin-left:5px}
+.lbody{display:flex;margin-top:12px}
+.lbody .l{width:38%;border-right:3px solid var(--line);position:relative;display:flex;align-items:center;justify-content:center;font-size:5rem;min-height:200px}
+.lbody .l .big{opacity:0;transition:opacity 1s}
+.lbody .l .mini{position:absolute;font-size:1.2rem;opacity:0}
+.lbody .l.go .big{opacity:1}
+.go .mini{animation:pop 1.6s var(--d) infinite}
+.m1{top:15%;left:12%}.m2{top:8%;right:14%}.m3{bottom:12%;left:30%}.m4{top:42%;right:8%}
+.lbody .r{width:62%;padding:6px 18px;font:700 1.35rem/1.5 'Dancing Script',cursive}
+#txt{white-space:pre-wrap}
+@media (max-width:700px){
+.content{flex-direction:column;justify-content:flex-start;gap:34px;padding-top:80px;overflow-y:auto}
+.badge{top:10px;right:6px;transform:scale(0)}
+.hat{right:-24px}
+.lbody{flex-direction:column}.lbody .l{width:100%;border:0;min-height:90px;font-size:3rem}.lbody .r{width:100%;font-size:1.1rem}
+.cake{font-size:3rem}
+}
+
+#card{max-height:92vh;display:flex}
+.letter{overflow-y:auto;max-height:calc(92vh - 34px);width:100%;-webkit-overflow-scrolling:touch}
+#lt{font-size:1.7rem;line-height:1.3;padding:0 14px;min-height:2.4rem}
+.lbody .l{align-items:flex-start;padding:0 14px 0 6px}
+.letterpic{width:100%;max-height:360px;object-fit:cover;object-position:center top;border-radius:16px;border:3px solid #fff;box-shadow:0 3px 10px rgba(0,0,0,.2)}
+.lbody .r{font-size:1.35rem;text-transform:none;display:flex;align-items:center}
+.rh{font:700 1.7rem 'Dancing Script',cursive;text-align:center;margin:26px 12px 14px}
+#reasons{padding:0 14px;display:flex;flex-direction:column;gap:12px}
+.rc{display:flex;gap:12px;background:#fff;border:2px solid var(--line);border-radius:16px;padding:12px 14px;opacity:0;transform:translateY(-34px);transition:opacity .6s,transform .6s}
+.rc.show{opacity:1;transform:none}
+.rc .n{flex:none;width:34px;height:34px;border-radius:50%;background:var(--coral);border:2px solid var(--ink);font:700 .95rem 'Sriracha',cursive;display:flex;align-items:center;justify-content:center}
+.rc h3{font:700 1rem 'Sriracha',cursive;margin-bottom:4px}
+.rc p{font:.9rem/1.5 'Sriracha',cursive;color:#555}
+.rc.last{background:#fff0f2;border-color:var(--coral)}
+.hpanel{margin:22px 14px 0;background:#000;border-radius:18px;overflow:hidden;position:relative;opacity:0;transition:opacity 1s}
+.hpanel.show{opacity:1}
+#hwrap{width:700px;height:540px;transform-origin:top left;position:relative}
+#ui .love{position:absolute;top:50%;left:50%;margin:-225px 0 0 -250px;--i:1}
+#ui .love_word{color:#ea80b0;font:1.4rem 'Sriracha',sans-serif;letter-spacing:2px;white-space:nowrap;text-shadow:0 0 10px #fff;transform:translateY(-100%) rotate(-30deg)}
+.love_horizontal{animation:hz 10s infinite alternate ease-in-out;animation-delay:calc(var(--i)*-300ms)}
+.love_vertical{animation:vt 20s infinite linear;animation-delay:calc(var(--i)*-300ms)}
+@keyframes hz{to{transform:translateX(450px)}}
+@keyframes vt{0%{transform:translateY(180px)}10%{transform:translateY(45px)}15%{transform:translateY(4.5px)}18%{transform:translateY(0)}20%{transform:translateY(4.5px)}22%{transform:translateY(34.6px)}24%{transform:translateY(64.3px)}25%{transform:translateY(112.5px)}26%{transform:translateY(64.3px)}28%{transform:translateY(34.6px)}30%{transform:translateY(4.5px)}32%{transform:translateY(0)}35%{transform:translateY(4.5px)}40%{transform:translateY(45px)}50%{transform:translateY(180px)}71%{transform:translateY(428.6px)}72.5%{transform:translateY(441.2px)}75%{transform:translateY(450px)}77.5%{transform:translateY(441.2px)}79%{transform:translateY(428.6px)}100%{transform:translateY(180px)}}
+.sign{text-align:center;font:700 1.6rem 'Dancing Script',cursive;margin:14px 0 4px}
+.star,.deco,.cake,.badge{pointer-events:none;z-index:0}
+.content{z-index:1}
+.deco,.star,.cake{opacity:.55}
+@media (max-width:700px){
+.content{padding:110px 16px 40px;gap:44px}
+.right{margin-bottom:30px}
+.badge{top:8px;right:6px;zoom:.7}
+.hat{right:-18px}
+.b1{left:-22px;top:-50px;font-size:4rem}.b2{right:-22px;top:120px;font-size:4rem}
+.photo{width:68vw;height:68vw;min-width:230px;min-height:230px}
+.name{font-size:1.3rem;padding:2px 18px;white-space:nowrap}
+.cake{font-size:2.4rem}
+.deco{font-size:1.1rem}
+#overlay{padding:8px}
+#card{width:96vw;max-height:94vh;padding:10px}
+.letter{max-height:calc(94vh - 20px)}
+#lt{font-size:1.15rem}
+.lbody .l{padding:0 14px}
+.letterpic{width:72%;margin:0 auto;max-height:300px}
+.lbody .r{font-size:1.1rem;padding:12px 14px}
+.rh{font-size:1.35rem}
+#reasons{padding:0 8px}
+.rc{padding:10px}
+.hpanel{margin:18px 8px 0}
+}
